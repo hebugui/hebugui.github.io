@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="最近学习了Git这个强大的工具，自己也算是有点小小的收获吧，在这里写出来作为学习笔记！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【笔记】版本控制工具Git基础知识大全">
+<meta property="og:url" content="http://example.com/2021/02/26/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%A4%A7%E5%85%A8/index.html">
+<meta property="og:site_name" content="影刃南墙の博客">
+<meta property="og:description" content="最近学习了Git这个强大的工具，自己也算是有点小小的收获吧，在这里写出来作为学习笔记！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200210183302967.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020021018344220.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200210184019507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020021018363162.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200210183842426.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200210183752687.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200210184245755.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200210184334796.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200210192722344.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200210192959580.png#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200210204511932.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200210204639738.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200210204658100.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200210204912904.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020021021112798.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200210220313615.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200210221001957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200210221640762.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200210221658384.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-02-26T13:57:55.000Z">
+<meta property="article:modified_time" content="2021-03-01T13:56:43.196Z">
+<meta property="article:author" content="步贵">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="Git">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200210183302967.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
+
+<link rel="canonical" href="http://example.com/2021/02/26/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%A4%A7%E5%85%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【笔记】版本控制工具Git基础知识大全 | 影刃南墙の博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">影刃南墙の博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录生活中的点点滴滴</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/26/%E3%80%90%E7%AC%94%E8%AE%B0%E3%80%91%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7Git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%A4%A7%E5%85%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="步贵">
+      <meta itemprop="description" content="直到这一刻微笑着说话为止，我至少流下了一公升眼泪">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="影刃南墙の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【笔记】版本控制工具Git基础知识大全
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-02-26 21:57:55" itemprop="dateCreated datePublished" datetime="2021-02-26T21:57:55+08:00">2021-02-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-01 21:56:43" itemprop="dateModified" datetime="2021-03-01T21:56:43+08:00">2021-03-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.1k</span>
+            </span>
+            <div class="post-description">最近学习了Git这个强大的工具，自己也算是有点小小的收获吧，在这里写出来作为学习笔记！</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>﻿　　</p>
+<h1 id="一、-写在前面"><a href="#一、-写在前面" class="headerlink" title="一、 写在前面"></a>一、 写在前面</h1><p>　　最近学习了Git（<strong>分布式版本控制系统</strong>）这个强大的工具，自己也算是有点小小的收获吧，在这里写出来作为学习笔记！<br>　　Git的版本控制像一颗树一样，可以有很多不同的分支，然后每一次commit都会产生一个更小的分支，版本回溯就像是寻找父亲节点一样，不同的分支代表了项目库不同的版本，正所谓“版本控制”！“分布式”是指它可以由多地多人共同协作完成一个项目，我感觉是这个。</p>
+<h1 id="二、Git简介"><a href="#二、Git简介" class="headerlink" title="二、Git简介"></a>二、Git简介</h1><p>　　首先Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。Git的读音为/gɪt/。 Git是一个开源的分布式版本控制系统，用以有效、高速的处理从很小到非常大的项目版本管理。</p>
+<h1 id="三、GitBash下载"><a href="#三、GitBash下载" class="headerlink" title="三、GitBash下载"></a>三、GitBash下载</h1><ol>
+<li>GitBash 是一款好用的软件，通过类似命令行的操作来让我们对自己的代码仓库进行版本控制，<a target="_blank" rel="noopener" href="https://git-scm.com/download/win"><strong>下载地址点击这里</strong></a>如果在自己的浏览器中下载不了的，可以按F12开发者工具打开网页源码,找到下载链接，然后复制链接迅雷打开下载，速度很快的。<br><img src="https://img-blog.csdnimg.cn/20200210183302967.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70" alt="download">　　　　　　　　　　　　　　　</li>
+</ol>
+<p> <strong>打开网页源码,找到下载链接</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/2020021018344220.png" alt="获取链接地址">　　　　　　 　　　<strong>复制链接迅雷打开下载</strong><br><img src="https://img-blog.csdnimg.cn/20200210184019507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>  <strong>默认路径设置</strong> ：把起始位置改为你想要的初始位置，比如上图是d:\GitHub,这样操作起来比较方便，如果你要建一个库，就可以在起始位置下直接输入了，不用写一大串的绝对路径了呢。   <img src="https://img-blog.csdnimg.cn/2020021018363162.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70#pic_center" alt="设置默认路径"></p>
+<p>​     </p>
+<h1 id="四、如何建一个本地仓库"><a href="#四、如何建一个本地仓库" class="headerlink" title="四、如何建一个本地仓库"></a>四、如何建一个本地仓库</h1><p> 　　　（１）进入GitBash。<br>     　　（２）如果已经有项目文件直接找到路径 <em>cd +文件名</em>  打开。<br> <img src="https://img-blog.csdnimg.cn/20200210183842426.png" alt="打开文件"><br>    　　（３）也可以用命令 <em>mkdir + 文件名</em> 在当前目录下新建一个然后cd打开。　<img src="https://img-blog.csdnimg.cn/20200210183752687.png" alt="新建文件"><br>    　　（４）<em>git init</em> (初始化)，看到弹出 Initialized empty Git repository in D:/GitHub/test/.git/ 字样时，<br>就说明你成功了，我们可以看到下面还弹出了一行代码，其中master表示位于主分支，这也体现了它的版本控制。<br><img src="https://img-blog.csdnimg.cn/20200210184245755.png" alt="初始化"><br>　　（５）此时可以进入test这个文件，在目录下会看到一个隐藏文件 .git ，里面是一些系统配置，不要动它就好了。<br><img src="https://img-blog.csdnimg.cn/20200210184334796.png" alt=".git文件"><br>　　（６）仓库建好之后要添加代码直接把文件存在这个目录下。
+　
+　</p>
+<h1 id="五、如何连接远程仓库，以GitHub为例"><a href="#五、如何连接远程仓库，以GitHub为例" class="headerlink" title="五、如何连接远程仓库，以ＧitＨub为例"></a>五、如何连接远程仓库，以ＧitＨub为例</h1><p><strong>1.首先在github上建立远程仓库</strong></p>
+<p> <img src="https://img-blog.csdnimg.cn/20200210192722344.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p><strong>2.然后复制ssh或者https(这里以ssh为例)</strong></p>
+<p> <img src="https://img-blog.csdnimg.cn/20200210192959580.png#pic_center" alt="在这里插入图片描述"></p>
+<p><strong>3.github输入命令</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20200210204511932.png" alt="在这里插入图片描述"><br>（这里仓库名显示为‘-’，有可能是中文字符不显示，路径不能出现中文字符）</p>
+<p>进入-文件</p>
+<p>  <img src="https://img-blog.csdnimg.cn/20200210204639738.png" alt="在这里插入图片描述"><br>可以看到刚刚在GitHub上创建的一个README.md文件<br>  <img src="https://img-blog.csdnimg.cn/20200210204658100.png" alt="在这里插入图片描述"><br>  <img src="https://img-blog.csdnimg.cn/20200210204912904.png" alt="在这里插入图片描述"></p>
+<h1 id="六、GitBash另外的一些基本操作"><a href="#六、GitBash另外的一些基本操作" class="headerlink" title="六、GitBash另外的一些基本操作"></a>六、GitBash另外的一些基本操作</h1><p> ~　　<br> 　　<strong>git remote</strong> :关联远程仓库 　<br>       例如：git remote add origin <a href="mailto:&#103;&#x69;&#116;&#x40;&#103;&#105;&#116;&#x68;&#117;&#x62;&#46;&#x63;&#x6f;&#109;">&#103;&#x69;&#116;&#x40;&#103;&#105;&#116;&#x68;&#117;&#x62;&#46;&#x63;&#x6f;&#109;</a>:yourname/youremail.git<br>～<br> 　　<strong>git log</strong>:查看修改日志，当我们对本地仓库进行了不理想的修改，怎么办呢？这时git的优势就体现出来了，依据版本号可以回溯到以前的任何版本，对于一些大型项目的开发是非常方便的<br> 　　<br>　　<strong>git status</strong> :查看当前库的状态<br>　　如：在主分支master、没有commit记录<br>　　<img src="https://img-blog.csdnimg.cn/2020021021112798.png" alt="在这里插入图片描述"><br>　　<br>　　<strong>git push</strong> :同步，把本地库的所有内容推送到远程库上<br>　　例如：git push -u origin master<br>　　<br>　　<strong>git commit</strong> :更新本地仓库信息 ‘m’代表message<br>　　例如：git commit -m “first commit”<br>　　<img src="https://img-blog.csdnimg.cn/20200210220313615.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><br>　　<strong>git clone</strong> :克隆远程库比如github上的,如下图 本来以为是同步更新（远程主动更新本地），clone hello_world 后发现在hello-world 目录下又复制了一个hello-world git库,这也就是说只能在远程克隆，不能在远程更新后返回本地，而github又支持直接在界面上修改代码，对我来说这是一个坑（一般人做项目肯定不会在GitHub上直接修改，是我多虑了）。划重点–<br>　　格式：git clone ssh/https<br>　　<img src="https://img-blog.csdnimg.cn/20200210221001957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>　　<br>　　<strong>git reset</strong>:版本回溯<br>　　如：git reset – hard +版本号前八位<br>　　先查log（日志），按照版本号可以回溯到任意时刻。<br>　　git reset – hard HEAD^ （返回上一次commit前）<br>　　这篇讲的很透彻 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c2ec5f06cf1a">https://www.jianshu.com/p/c2ec5f06cf1a</a></p>
+<p><img src="https://img-blog.csdnimg.cn/20200210221640762.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200210221658384.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>　　<strong>总结：</strong> 如果是自己做项目开发，可以现在本地建立仓库，然后再推送到远程<br>　　如果是借鉴别人的优秀代码，可以先fork再clone到本地</p>
+<h1 id="七、其他一些软件也具有版本控制功能"><a href="#七、其他一些软件也具有版本控制功能" class="headerlink" title="七、其他一些软件也具有版本控制功能"></a>七、其他一些软件也具有版本控制功能</h1><p>~<br>　　不过要连接git，例如github提供的桌面版Github Desktop还有python IDE pycharm，界面操作虽然爽而且简单直观，但是原生的gitbash可以在不同的os上操作，可移植性更强，他不香吗hhh</p>
+<h1 id="八、GIT-传输和加密机制"><a href="#八、GIT-传输和加密机制" class="headerlink" title="八、GIT 传输和加密机制"></a>八、GIT 传输和加密机制</h1><p>～<br>　　采用非对称加密方式，公钥和密钥 ；也可使用https协议在本地仓库和远程仓库之间传输信息 对于如何绑定本地GIT和GitHub这个不详细介绍了，因为忘记截图了。  可以参考 <a target="_blank" rel="noopener" href="http://blog.csdn.net/acmman/article/details/77621253">http://blog.csdn.net/acmman/article/details/77621253</a></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="步贵 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="步贵 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
+              <a href="/tags/Git/" rel="tag"># Git</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/02/26/%E6%B9%96%E5%8D%97%E7%A7%91%E6%8A%80%E5%A4%A7%E5%AD%A6Android%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1%E4%B9%8B%E4%B8%AA%E4%BA%BA%E7%90%86%E8%B4%A2%E5%B0%8F%E5%8A%A9%E6%89%8BAPP/" rel="prev" title="湖南科技大学Android课程设计之个人理财小助手APP">
+      <i class="fa fa-chevron-left"></i> 湖南科技大学Android课程设计之个人理财小助手APP
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/02/26/%E3%80%90python%E5%AE%9E%E6%88%98%E3%80%91%E5%AD%A6%E7%94%9F%E6%88%90%E7%BB%A9%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E2%80%94%E6%96%87%E4%BB%B6%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%89%88/" rel="next" title="【python实战】学生成绩管理系统—文件命令行版">
+      【python实战】学生成绩管理系统—文件命令行版 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81-%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">一、 写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Git%E7%AE%80%E4%BB%8B"><span class="nav-number">2.</span> <span class="nav-text">二、Git简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81GitBash%E4%B8%8B%E8%BD%BD"><span class="nav-number">3.</span> <span class="nav-text">三、GitBash下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%A6%82%E4%BD%95%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="nav-number">4.</span> <span class="nav-text">四、如何建一个本地仓库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%EF%BC%8C%E4%BB%A5GitHub%E4%B8%BA%E4%BE%8B"><span class="nav-number">5.</span> <span class="nav-text">五、如何连接远程仓库，以ＧitＨub为例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AD%E3%80%81GitBash%E5%8F%A6%E5%A4%96%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">6.</span> <span class="nav-text">六、GitBash另外的一些基本操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E5%85%B6%E4%BB%96%E4%B8%80%E4%BA%9B%E8%BD%AF%E4%BB%B6%E4%B9%9F%E5%85%B7%E6%9C%89%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%8A%9F%E8%83%BD"><span class="nav-number">7.</span> <span class="nav-text">七、其他一些软件也具有版本控制功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AB%E3%80%81GIT-%E4%BC%A0%E8%BE%93%E5%92%8C%E5%8A%A0%E5%AF%86%E6%9C%BA%E5%88%B6"><span class="nav-number">8.</span> <span class="nav-text">八、GIT 传输和加密机制</span></a></li></ol></div>
+      </div>
+
+      <!--/noindex-->
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="步贵"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">步贵</p>
+  <div class="site-description" itemprop="description">直到这一刻微笑着说话为止，我至少流下了一公升眼泪</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/hebugui" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;hebugui" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/weixin_43827376" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_43827376" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+      <!--添加音乐-->
+      <div>
+         <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1822065830&auto=1&height=66"></iframe>
+      <div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">步贵</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">28k</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
