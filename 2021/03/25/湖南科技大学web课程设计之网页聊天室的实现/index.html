@@ -20,36 +20,34 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="基于android的理财小助手app，开发采用了增量式软件开发模型，采用轻量级数据库SQLite存储。">
+  <meta name="description" content="基于nodejs express&#x2F;socketio框架的网页聊天室。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="湖南科技大学Android课程设计之个人理财小助手APP">
-<meta property="og:url" content="http://example.com/2021/02/26/%E6%B9%96%E5%8D%97%E7%A7%91%E6%8A%80%E5%A4%A7%E5%AD%A6Android%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1%E4%B9%8B%E4%B8%AA%E4%BA%BA%E7%90%86%E8%B4%A2%E5%B0%8F%E5%8A%A9%E6%89%8BAPP/index.html">
+<meta property="og:title" content="湖南科技大学web课程设计之网页聊天室的实现">
+<meta property="og:url" content="http://example.com/2021/03/25/%E6%B9%96%E5%8D%97%E7%A7%91%E6%8A%80%E5%A4%A7%E5%AD%A6web%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1%E4%B9%8B%E7%BD%91%E9%A1%B5%E8%81%8A%E5%A4%A9%E5%AE%A4%E7%9A%84%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="影刃南墙の博客">
-<meta property="og:description" content="基于android的理财小助手app，开发采用了增量式软件开发模型，采用轻量级数据库SQLite存储。">
+<meta property="og:description" content="基于nodejs express&#x2F;socketio框架的网页聊天室。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210226150635101.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210226152015177.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210226151313405.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210226160531490.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210226163121464.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210226155408953.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210226160752159.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210226160841332.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210226160923720.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210226161023668.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210226161045735.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210226161137679.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2021022616131793.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210226150321685.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
-<meta property="article:published_time" content="2021-02-26T13:57:55.000Z">
-<meta property="article:modified_time" content="2021-02-27T06:06:05.952Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210325120640129.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210325121435992.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210325121458130.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210325121329514.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2021032512134867.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210325121556516.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2021032512162651.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210325121722528.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210325122522515.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-03-25T05:55:56.000Z">
+<meta property="article:modified_time" content="2021-03-25T05:58:40.287Z">
 <meta property="article:author" content="步贵">
-<meta property="article:tag" content="Android">
-<meta property="article:tag" content="课程设计">
+<meta property="article:tag" content="html">
+<meta property="article:tag" content="css">
+<meta property="article:tag" content="js">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="nodejs">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210226150635101.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210325120640129.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
 
-<link rel="canonical" href="http://example.com/2021/02/26/%E6%B9%96%E5%8D%97%E7%A7%91%E6%8A%80%E5%A4%A7%E5%AD%A6Android%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1%E4%B9%8B%E4%B8%AA%E4%BA%BA%E7%90%86%E8%B4%A2%E5%B0%8F%E5%8A%A9%E6%89%8BAPP/">
+<link rel="canonical" href="http://example.com/2021/03/25/%E6%B9%96%E5%8D%97%E7%A7%91%E6%8A%80%E5%A4%A7%E5%AD%A6web%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1%E4%B9%8B%E7%BD%91%E9%A1%B5%E8%81%8A%E5%A4%A9%E5%AE%A4%E7%9A%84%E5%AE%9E%E7%8E%B0/">
 
 
 <script id="page-configurations">
@@ -62,7 +60,7 @@
   };
 </script>
 
-  <title>湖南科技大学Android课程设计之个人理财小助手APP | 影刃南墙の博客</title>
+  <title>湖南科技大学web课程设计之网页聊天室的实现 | 影刃南墙の博客</title>
   
 
 
@@ -226,7 +224,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/26/%E6%B9%96%E5%8D%97%E7%A7%91%E6%8A%80%E5%A4%A7%E5%AD%A6Android%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1%E4%B9%8B%E4%B8%AA%E4%BA%BA%E7%90%86%E8%B4%A2%E5%B0%8F%E5%8A%A9%E6%89%8BAPP/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/25/%E6%B9%96%E5%8D%97%E7%A7%91%E6%8A%80%E5%A4%A7%E5%AD%A6web%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1%E4%B9%8B%E7%BD%91%E9%A1%B5%E8%81%8A%E5%A4%A9%E5%AE%A4%E7%9A%84%E5%AE%9E%E7%8E%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -239,7 +237,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          湖南科技大学Android课程设计之个人理财小助手APP
+          湖南科技大学web课程设计之网页聊天室的实现
         </h1>
 
         <div class="post-meta">
@@ -248,23 +246,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-02-26 21:57:55" itemprop="dateCreated datePublished" datetime="2021-02-26T21:57:55+08:00">2021-02-26</time>
+              <time title="创建时间：2021-03-25 13:55:56 / 修改时间：13:58:40" itemprop="dateCreated datePublished" datetime="2021-03-25T13:55:56+08:00">2021-03-25</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-27 14:06:05" itemprop="dateModified" datetime="2021-02-27T14:06:05+08:00">2021-02-27</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+                  <a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a>
                 </span>
             </span>
 
@@ -281,9 +273,9 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>633</span>
+              <span>587</span>
             </span>
-            <div class="post-description">基于android的理财小助手app，开发采用了增量式软件开发模型，采用轻量级数据库SQLite存储。</div>
+            <div class="post-description">基于nodejs express/socketio框架的网页聊天室。</div>
 
         </div>
       </header>
@@ -294,22 +286,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h1><p>基于android的理财小助手app，开发采用了增量式软件开发模型，采用轻量级数据库SQLite存储。主要应用了listView、button、editText、textView、spinner、dialog、CalendarView、menu等Android原生控件，以及自定义View控件ShanView(扇形图)、CircleProgressBar(环形进度条);采用了分层式类似MVC的结构，分为Activity(View)、JavaBean(Model)、Service（Control）,另外有Util包（工具类,包含字符串处理类、时间格式转换类、数据库操作类等）。以达到在模块层次上减小耦合、提高内聚的设计目标。</p>
-<h1 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h1><p><img src="https://img-blog.csdnimg.cn/20210226150635101.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70"><br>上图是src下的java代码，编写的类比较多，有三十多个，大部分是一个页面对应一个java类。<br><img src="https://img-blog.csdnimg.cn/20210226152015177.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70"><br>上图是src下的布局文件，分为登录注册页、主菜单页、新增支出页、新增收入页、我的支出/收入展示页、数据管理页、系统设置页、收支便签展示页等等，角色分为用户和管理员（内置，用于管理多个普通账户）</p>
-<h1 id="总体设计"><a href="#总体设计" class="headerlink" title="总体设计"></a>总体设计</h1><p><img src="https://img-blog.csdnimg.cn/20210226151313405.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70"></p>
-<h1 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h1><p>下面是部分页面的具体效果。</p>
-<p><img src="https://img-blog.csdnimg.cn/20210226160531490.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70" alt="登录注册页"></p>
-<p><img src="https://img-blog.csdnimg.cn/20210226163121464.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70" alt="管理员后台页"></p>
-<p><img src="https://img-blog.csdnimg.cn/20210226155408953.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70" alt="主菜单页"></p>
-<p><img src="https://img-blog.csdnimg.cn/20210226160752159.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70" alt="我的支出页"></p>
-<p><img src="https://img-blog.csdnimg.cn/20210226160841332.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70" alt="数据管理页"></p>
-<p><img src="https://img-blog.csdnimg.cn/20210226160923720.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70" alt="季节收入页"></p>
-<p><img src="https://img-blog.csdnimg.cn/20210226161023668.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70" alt="新增支出页"></p>
-<p><img src="https://img-blog.csdnimg.cn/20210226161045735.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70" alt="数据管理页"></p>
-<p><img src="https://img-blog.csdnimg.cn/20210226161137679.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70" alt="系统设置页"></p>
-<p><img src="https://img-blog.csdnimg.cn/2021022616131793.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70" alt="便签管理页"></p>
-<h1 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a>源码地址</h1><p><a target="_blank" rel="noopener" href="https://gitee.com/hebugui/financial-assistant-app2">gitee仓库地址，开源不易，欢迎star</a><br><img src="https://img-blog.csdnimg.cn/20210226150321685.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70" alt="apk文件"><br>上图是软件的apk包，可以下载到手机上安装体验。<br>注：1.初始会创建一个管理员账号，用户名：admin，密码：admin<br>2.用户需注册才能使用</p>
-<h1 id="项目总结"><a href="#项目总结" class="headerlink" title="项目总结"></a>项目总结</h1><p>这个项目收获挺多的，独立完成一个小软件的开发。趁着大三寒假空闲之余就整理了一下，适合安卓新手入门。</p>
+        <h1 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h1><p>由于WEB的易用性、实用性，它很快占据了主导地位，目前成为使用最广泛、最有前途、最具魅力的信息传播技术。本次实验就就基于web技术对社交网站开发的初步探索。本次课程设计内容为仿微信网页版Web即时聊天系统。<br>实现Web的多对多即时的文本消息聊天功能。<br>实现Web的表情的发送、接收和显示功能。<br>实现Web的图片的发送、接收和显示功能。<br>实现本地消息的存储，在离线的时候也能加载和查看历史消息；<br>要求使用WebSocket；</p>
+<h1 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h1><p><img src="https://img-blog.csdnimg.cn/20210325120640129.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70" alt="目录结构"><br>项目采用html+css+js+nodejs+mysql开发。 </p>
+<p>基于Nodejs平台的web开发框架–Express/Socket.io</p>
+<p>文件目录</p>
+<blockquote>
+<p>app.js nodejs编写的后端程序</p>
+</blockquote>
+<blockquote>
+<p>db 封装的数据库操作</p>
+</blockquote>
+<blockquote>
+<p>node_modules 模块依赖</p>
+</blockquote>
+<blockquote>
+<p>public 静态资源，即前端三大件</p>
+</blockquote>
+<blockquote>
+<p>.json 配置文件，不用管</p>
+</blockquote>
+<h1 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h1><p><img src="https://img-blog.csdnimg.cn/20210325121435992.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70" alt="登录界面"><br><img src="https://img-blog.csdnimg.cn/20210325121458130.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70" alt="注册界面"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210325121329514.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70" alt="用户1聊天室界面"><br><img src="https://img-blog.csdnimg.cn/2021032512134867.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70" alt="用户2聊天室界面"></p>
+<h1 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h1><p>数据库比较简单，就两张表，用户信息表和聊天信息表。<br><img src="https://img-blog.csdnimg.cn/20210325121556516.png" alt="数据库"><br><img src="https://img-blog.csdnimg.cn/2021032512162651.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70" alt="message表"><br><img src="https://img-blog.csdnimg.cn/20210325121722528.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70" alt="userinformation表"></p>
+<h1 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a>源码地址</h1><p><a target="_blank" rel="noopener" href="https://gitee.com/hebugui/web_qqchating.git">gitee仓库地址，开源不易，欢迎star</a><br><img src="https://img-blog.csdnimg.cn/20210325122522515.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70" alt="gitee"></p>
+<h1 id="项目总结"><a href="#项目总结" class="headerlink" title="项目总结"></a>项目总结</h1><p>做这个项目之前，我没有接触过nodejs，后来发现使用了它非常方便，语法贴近js比较好学，功能又很强大，很多封装好的模块。</p>
+<p>这个项目我的后续计划是把它部署到阿里云上，正在尝试中。之前弄过一次失败了，所以准备重新搞一下。这个项目是大三下学期整理的，课设是大二下做的，感觉也是对自己学习的一种总结吧，记录自己学习的心路历程。</p>
 
     </div>
 
@@ -339,8 +340,11 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Android/" rel="tag"># Android</a>
-              <a href="/tags/%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1/" rel="tag"># 课程设计</a>
+              <a href="/tags/html/" rel="tag"># html</a>
+              <a href="/tags/css/" rel="tag"># css</a>
+              <a href="/tags/js/" rel="tag"># js</a>
+              <a href="/tags/web/" rel="tag"># web</a>
+              <a href="/tags/nodejs/" rel="tag"># nodejs</a>
           </div>
 
         
@@ -348,11 +352,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2021/02/26/%E3%80%90%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%E3%80%91%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E4%BD%BF%E7%94%A8python%E7%88%AC%E5%8F%96%E7%BD%91%E7%BB%9C%E5%B0%8F%E8%AF%B4/" rel="next" title="【爬虫实战】手把手教你使用python爬取网络小说">
-      【爬虫实战】手把手教你使用python爬取网络小说 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/03/25/oppo%E5%95%86%E5%9F%8E%E7%BD%91%E9%A1%B5/" rel="prev" title="oppo商城网页">
+      <i class="fa fa-chevron-left"></i> oppo商城网页
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -410,7 +414,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">项目介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E4%BD%93%E8%AE%BE%E8%AE%A1"><span class="nav-number">3.</span> <span class="nav-text">总体设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%E5%B1%95%E7%A4%BA"><span class="nav-number">4.</span> <span class="nav-text">效果展示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%BA%90%E7%A0%81%E5%9C%B0%E5%9D%80"><span class="nav-number">5.</span> <span class="nav-text">源码地址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93"><span class="nav-number">6.</span> <span class="nav-text">项目总结</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">项目介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%E5%B1%95%E7%A4%BA"><span class="nav-number">3.</span> <span class="nav-text">效果展示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1"><span class="nav-number">4.</span> <span class="nav-text">数据库设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%BA%90%E7%A0%81%E5%9C%B0%E5%9D%80"><span class="nav-number">5.</span> <span class="nav-text">源码地址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93"><span class="nav-number">6.</span> <span class="nav-text">项目总结</span></a></li></ol></div>
       </div>
 
       <!--/noindex-->
