@@ -20,20 +20,23 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="这是一个介绍常用git常用命令的小文章！">
+  <meta name="description" content="这是一个利用爬虫获取武书连2020中国最好大学排名榜单的小程序...">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git常用命令">
-<meta property="og:url" content="http://example.com/2021/03/28/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:title" content="【爬虫实战】python爬取中国最好大学排行榜">
+<meta property="og:url" content="http://example.com/2021/06/06/%E3%80%90%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%E3%80%91python%E7%88%AC%E5%8F%96%E4%B8%AD%E5%9B%BD%E6%9C%80%E5%A5%BD%E5%A4%A7%E5%AD%A6%E6%8E%92%E8%A1%8C%E6%A6%9C/index.html">
 <meta property="og:site_name" content="影刃南墙の博客">
-<meta property="og:description" content="这是一个介绍常用git常用命令的小文章！">
+<meta property="og:description" content="这是一个利用爬虫获取武书连2020中国最好大学排名榜单的小程序...">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-03-28T15:05:20.000Z">
-<meta property="article:modified_time" content="2021-03-29T10:00:45.535Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210605232741971.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-06-06T04:02:13.000Z">
+<meta property="article:modified_time" content="2021-06-07T05:50:12.785Z">
 <meta property="article:author" content="步贵">
-<meta property="article:tag" content="Git">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="爬虫">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210605232741971.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70">
 
-<link rel="canonical" href="http://example.com/2021/03/28/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+<link rel="canonical" href="http://example.com/2021/06/06/%E3%80%90%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%E3%80%91python%E7%88%AC%E5%8F%96%E4%B8%AD%E5%9B%BD%E6%9C%80%E5%A5%BD%E5%A4%A7%E5%AD%A6%E6%8E%92%E8%A1%8C%E6%A6%9C/">
 
 
 <script id="page-configurations">
@@ -46,7 +49,7 @@
   };
 </script>
 
-  <title>Git常用命令 | 影刃南墙の博客</title>
+  <title>【爬虫实战】python爬取中国最好大学排行榜 | 影刃南墙の博客</title>
   
 
 
@@ -210,7 +213,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/28/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/06/%E3%80%90%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98%E3%80%91python%E7%88%AC%E5%8F%96%E4%B8%AD%E5%9B%BD%E6%9C%80%E5%A5%BD%E5%A4%A7%E5%AD%A6%E6%8E%92%E8%A1%8C%E6%A6%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -223,7 +226,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Git常用命令
+          【爬虫实战】python爬取中国最好大学排行榜
         </h1>
 
         <div class="post-meta">
@@ -233,14 +236,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-03-28 23:05:20" itemprop="dateCreated datePublished" datetime="2021-03-28T23:05:20+08:00">2021-03-28</time>
+              <time title="创建时间：2021-06-06 12:02:13" itemprop="dateCreated datePublished" datetime="2021-06-06T12:02:13+08:00">2021-06-06</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-29 18:00:45" itemprop="dateModified" datetime="2021-03-29T18:00:45+08:00">2021-03-29</time>
+                <time title="修改时间：2021-06-07 13:50:12" itemprop="dateModified" datetime="2021-06-07T13:50:12+08:00">2021-06-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -248,7 +251,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+                  <a href="/categories/%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a>
                 </span>
             </span>
 
@@ -265,9 +268,9 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>487</span>
+              <span>3.3k</span>
             </span>
-            <div class="post-description">这是一个介绍常用git常用命令的小文章！</div>
+            <div class="post-description">这是一个利用爬虫获取武书连2020中国最好大学排名榜单的小程序...</div>
 
         </div>
       </header>
@@ -278,27 +281,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote>
-<p>step1（新建远程仓库）</p>
-<p><strong>首先在gitee/github新建一个仓库</strong></p>
-<p>step2 （打开git）</p>
-<p><strong>在项目最外层文件gitbash here打开git命令行</strong></p>
-<p>step3（初始化仓库）</p>
-<p><strong>git init</strong></p>
-<p>step4（添加文件）</p>
-<p><strong>git add .</strong><br>(注意add和“.”之间有空格)</p>
-<p>step5（将暂存区里的改动给提交到本地的版本库）</p>
-<p><strong>git commit -m”提交的描述信息”</strong></p>
-<p>step6（关联远程仓库）</p>
-<p><strong>git remote add origin 仓库地址url</strong><br>(如 gitee <a target="_blank" rel="noopener" href="https://gitee.com/hebugui/personal-homepage.git">https://gitee.com/hebugui/personal-homepage.git</a>)</p>
-<p>step7（如果建仓库时没有建readme.md文件可以忽略此步）</p>
-<p><strong>执行git pull –rebase origin master命令README.md拉到本地</strong></p>
-<p>step8（推送到远程仓库）</p>
-<p><strong>git push origin master</strong></p>
-</blockquote>
-<blockquote>
-<p><strong>tip</strong><br>Git里面的origin就是一个名字，它是在你clone一个托管在Github上代码库时，git为你默认创建的指向这个远程代码库的标签。如果要在多个代码托管仓库项目代码，可以把origin分别替换成gitee和github</p>
-</blockquote>
+        <p>﻿###     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最近闲来无事，帮朋友做了个python小作业，爬取武书连2020中国最好大学排名榜单。比较简单，我就直接上代码了。<br> <code>代码展示</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">import requests  # 请求库</span><br><span class="line">from bs4 import BeautifulSoup  # 解析库</span><br><span class="line">import xlwt  # xls库</span><br><span class="line">import random  # 随机数库</span><br><span class="line"></span><br><span class="line"># 构造请求头</span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Connection&#x27;</span>: <span class="string">&#x27;close&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Accept&#x27;</span>: <span class="string">&#x27;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;https://www.dxsbb.com/news/list_75.html&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Accept-Encoding&#x27;</span>: <span class="string">&#x27;gzip, deflate, sdch&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Accept-Language&#x27;</span>:<span class="string">&#x27;zh-CN,zh;q=0.9&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"># 代理列表</span><br><span class="line">user_agent_list = [</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/61.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.62 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Mozilla/5.0 (Macintosh; U; PPC Mac OS X 10.5; en-US; rv:1.9.2.15) Gecko/20110303 Firefox/3.6.15&quot;</span>,</span><br><span class="line">    ]</span><br><span class="line"># 随即更换代理</span><br><span class="line">headers[<span class="string">&#x27;User-Agent&#x27;</span>] = random.choice(user_agent_list)</span><br><span class="line"></span><br><span class="line"># 目标网站网址</span><br><span class="line">url = <span class="string">&quot;https://www.dxsbb.com/news/46702.html&quot;</span></span><br><span class="line"># 使用requests库爬取</span><br><span class="line">res = requests.get(url=url,headers=headers)</span><br><span class="line"># 设置文字格式</span><br><span class="line">res.encoding = res.apparent_encoding</span><br><span class="line"># 解析网页文件</span><br><span class="line">soup = BeautifulSoup(res.text, <span class="string">&#x27;html.parser&#x27;</span>)</span><br><span class="line"># 获取所有大学排名</span><br><span class="line">tbody = soup.find(<span class="string">&#x27;tbody&#x27;</span>)</span><br><span class="line">universities = tbody.find_all(<span class="string">&#x27;tr&#x27;</span>)</span><br><span class="line"># 用列表存储所有学校</span><br><span class="line">universitiesInfos = []</span><br><span class="line"># 遍历所有大学，获取信息</span><br><span class="line"><span class="keyword">for</span> university <span class="keyword">in</span> universities:</span><br><span class="line">    # 字典存储每个学校具体信息</span><br><span class="line">    universitiesInfo = &#123;<span class="string">&#x27;rank&#x27;</span>: <span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;rank_province&#x27;</span>: <span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;province&#x27;</span>: <span class="string">&#x27;&#x27;</span>&#125;</span><br><span class="line">    # 全国排名</span><br><span class="line">    rank = university.find_all(<span class="string">&#x27;td&#x27;</span>)[<span class="number">0</span>].text</span><br><span class="line">    universitiesInfo[<span class="string">&#x27;rank&#x27;</span>] = rank</span><br><span class="line">    # 分省排名</span><br><span class="line">    rank_province = university.find_all(<span class="string">&#x27;td&#x27;</span>)[<span class="number">1</span>].text</span><br><span class="line">    universitiesInfo[<span class="string">&#x27;rank_province&#x27;</span>] = rank_province</span><br><span class="line">    # 学校名称</span><br><span class="line">    name = university.find_all(<span class="string">&#x27;td&#x27;</span>)[<span class="number">2</span>].text</span><br><span class="line">    universitiesInfo[<span class="string">&#x27;name&#x27;</span>] = name</span><br><span class="line">    # 所在省份</span><br><span class="line">    province = university.find_all(<span class="string">&#x27;td&#x27;</span>)[<span class="number">3</span>].text</span><br><span class="line">    universitiesInfo[<span class="string">&#x27;province&#x27;</span>] = province</span><br><span class="line">    # 保存</span><br><span class="line">    universitiesInfos.append(universitiesInfo)</span><br><span class="line"></span><br><span class="line"># 创建一个Excel文件</span><br><span class="line">file = xlwt.Workbook()</span><br><span class="line"># 创建sheet工作表</span><br><span class="line">sheet1 = file.add_sheet(u<span class="string">&#x27;武书连2020中国最好大学排名&#x27;</span>, cell_overwrite_ok=True)</span><br><span class="line"></span><br><span class="line"># 将数据来源网址url写入第一行</span><br><span class="line">sheet1.write(<span class="number">0</span>,<span class="number">0</span>,<span class="string">&quot;数据来源&quot;</span>)</span><br><span class="line">sheet1.write(<span class="number">0</span>,<span class="number">1</span>,url)</span><br><span class="line"># 写入数据从第二行开始</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(universitiesInfos)):</span><br><span class="line">    # 每行写入全国排名、省份排名、学校名称、所在省份信息</span><br><span class="line">    sheet1.write(i+1, 0, universitiesInfos[i][&#x27;rank&#x27;])  # 第i行，第1列</span><br><span class="line">    sheet1.write(i+<span class="number">1</span>, <span class="number">1</span>, universitiesInfos[i][<span class="string">&#x27;rank_province&#x27;</span>])</span><br><span class="line">    sheet1.write(i+<span class="number">1</span>, <span class="number">2</span>, universitiesInfos[i][<span class="string">&#x27;name&#x27;</span>])</span><br><span class="line">    sheet1.write(i+<span class="number">1</span>, <span class="number">3</span>, universitiesInfos[i][<span class="string">&#x27;province&#x27;</span>])</span><br><span class="line"></span><br><span class="line"># 设置第三列的宽度</span><br><span class="line">sheet1.col(<span class="number">2</span>).width = <span class="number">5000</span></span><br><span class="line"># 保存文件</span><br><span class="line">file.save(<span class="string">&quot;武书连2020中国最好大学排名.xls&quot;</span>)</span><br><span class="line">print(<span class="string">&#x27;\n***xsl文件下载完成***&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p> <code>最终效果</code><br> <img src="https://img-blog.csdnimg.cn/20210605232741971.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzgyNzM3Ng==,size_16,color_FFFFFF,t_70" alt="中国最好大学"></p>
 
     </div>
 
@@ -328,7 +313,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Git/" rel="tag"># Git</a>
+              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/%E7%88%AC%E8%99%AB/" rel="tag"># 爬虫</a>
           </div>
 
         
@@ -337,12 +323,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/03/25/%E6%B9%96%E5%8D%97%E7%A7%91%E6%8A%80%E5%A4%A7%E5%AD%A6web%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1%E4%B9%8B%E7%BD%91%E9%A1%B5%E8%81%8A%E5%A4%A9%E5%AE%A4%E7%9A%84%E5%AE%9E%E7%8E%B0/" rel="prev" title="湖南科技大学web课程设计之网页聊天室的实现">
-      <i class="fa fa-chevron-left"></i> 湖南科技大学web课程设计之网页聊天室的实现
+    <a href="/2021/05/16/%E8%85%BE%E8%AE%AF%E7%96%AB%E6%83%85%E7%88%AC%E5%8F%96%E6%96%B0%E5%86%A0%E6%95%B0%E6%8D%AE/" rel="prev" title="腾讯疫情爬取新冠数据">
+      <i class="fa fa-chevron-left"></i> 腾讯疫情爬取新冠数据
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/03/29/CSP%E6%8A%A5%E6%95%B0/" rel="next" title="CSP报数问题">
-      CSP报数问题 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/06/07/%E4%B8%96%E7%95%8C%E5%90%84%E5%9B%BD%E6%96%B0%E5%86%A0%E7%96%AB%E6%83%85%E6%95%B0%E6%8D%AE/" rel="next" title="世界各国新冠疫情数据">
+      世界各国新冠疫情数据 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
